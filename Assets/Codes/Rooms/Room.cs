@@ -25,10 +25,11 @@ public class Room : MonoBehaviour
             doors.SetActive(true);
         }
     }
-
+    
+    [ContextMenu("Enterance")]
     public void Enterance()
     {
         
-        Instantiate(barrel, transform.position, quaternion.identity);
+        Instantiate(barrel, gameObject.transform.position, quaternion.identity);
     }
 }

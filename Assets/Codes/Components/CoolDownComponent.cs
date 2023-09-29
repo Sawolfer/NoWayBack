@@ -30,9 +30,6 @@ public class CoolDownComponent
             coolDownIsReady = true;
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 }
