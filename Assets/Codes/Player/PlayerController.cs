@@ -16,9 +16,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _attackRange;
     [SerializeField] private Transform _attackPosition;
     [SerializeField] private CoolDownComponent _coolDown;
+    [SerializeField] private CooldownFillerComponent _cooldownFiller;
     
     private void Awake()
     {
+        _cooldownFiller.coolDown = _coolDown.coolDown;
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour
                 var hp = man.GetComponent<HealthComponent>();
                 hp.ApplyDamage(_damage);
                 _coolDown.CDReset();
+                _cooldownFiller.Reset();
             }
         }
     }
