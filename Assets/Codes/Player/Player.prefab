@@ -215,6 +215,7 @@ MonoBehaviour:
   _coolDown:
     coolDownIsReady: 1
     coolDown: 3
+  _cooldownFiller: {fileID: 0}
 --- !u!50 &1000161531468364245
 Rigidbody2D:
   serializedVersion: 4

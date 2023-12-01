@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0396f53014349e89a6bb4fdf848327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
   _speed: 8
   _attack: {fileID: 1384673971358230824}
   _waitTime:

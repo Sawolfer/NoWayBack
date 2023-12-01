@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.EditorTools;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = System.Random;
 
 public class CreatureDefault : MonoBehaviour
@@ -25,6 +26,7 @@ public class CreatureDefault : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _player = GameObject.FindWithTag("Player");
+
     }
 
     private void SetDirection(Vector2 direction)
@@ -76,8 +78,7 @@ public class CreatureDefault : MonoBehaviour
     private IEnumerator GoTohero()
     {
         
-        var hero = GameObject.FindWithTag("Player");
-        var tmpDir = hero.transform.position - transform.position;
+        var tmpDir = _player.transform.position - transform.position;
         tmpDir= tmpDir.normalized;
         SetDirection(tmpDir);
         yield return new WaitForSeconds(_waitTime.coolDown);
