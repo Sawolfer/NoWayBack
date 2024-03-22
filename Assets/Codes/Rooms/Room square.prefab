@@ -2901,6 +2901,7 @@ GameObject:
   - component: {fileID: 7893586654498441436}
   - component: {fileID: 2652918165156602502}
   - component: {fileID: 1194292751291976}
+  - component: {fileID: 1455734304373923535}
   m_Layer: 0
   m_Name: Room square
   m_TagString: Untagged
@@ -2955,3 +2956,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrel: {fileID: 5322273290840951709, guid: d65450064c98045b5bf9863342654d1f, type: 3}
   doors: {fileID: 2758315195612538257}
+--- !u!114 &1455734304373923535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9109488456709275488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff

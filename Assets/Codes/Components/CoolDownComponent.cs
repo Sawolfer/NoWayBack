@@ -13,6 +13,7 @@ public class CoolDownComponent
     public float coolDown;
     private float nextTime;
 
+    
     private void FixedUpdate()
     {
         CDCheck();
