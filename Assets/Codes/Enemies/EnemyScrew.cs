@@ -11,7 +11,7 @@ public class EnemyScrew : CreatureDefault
     [SerializeField] private Collider2D _visionRange;
     [SerializeField] protected float _coolDown;
     
-    [SerializeField] private List<Transform> _patrolPoint;
+    private List<Transform> _patrolPoint;
     private GameObject _player;
     private NavMeshAgent navMeshAgent;
     private int _currentPatrolPoint = 0;
@@ -20,7 +20,6 @@ public class EnemyScrew : CreatureDefault
     protected override void Awake()
     {
         base.Awake();
-        navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         GameObject[] points = GameObject.FindGameObjectsWithTag("PatrolPoint");
         foreach (var item in points){
@@ -42,7 +41,7 @@ public class EnemyScrew : CreatureDefault
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")){
-            StartCoroutine(RecognisePlayer());
+            StartCoroutine(RecognizePlayer());
         }
     }
 
@@ -53,14 +52,15 @@ public class EnemyScrew : CreatureDefault
         }
     }
 
-    private IEnumerator RecognisePlayer(){
+    private IEnumerator RecognizePlayer(){
         StopCoroutine(Patrol());
         _isPatrolling = false;
-        StartCoroutine(Wait("GoToPlayer"));
+        StartCoroutine(GoToPlayer());
         yield return null;
     }
 
     private IEnumerator ForgotPlayer(){
+        StopCoroutine(GoToPlayer());
         StartCoroutine(Patrol());
         yield return null;
     }
@@ -69,7 +69,9 @@ public class EnemyScrew : CreatureDefault
         _isPatrolling = true;
         _currentPatrolPoint = (_currentPatrolPoint + 1) % _patrolPoint.Count;
         navMeshAgent.destination = _patrolPoint[_currentPatrolPoint].position;
-        yield return new WaitForSeconds(1);
+        float time = Vector2.Distance(_patrolPoint[_currentPatrolPoint].position, transform.position) / _speed;
+        
+        yield return new WaitForSeconds(time);
         StartCoroutine(Patrol());
     }
 
